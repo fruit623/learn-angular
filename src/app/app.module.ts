@@ -10,13 +10,14 @@ import { ContentComponent } from './content/content.component';
 import { MenuComponent } from './menu/menu.component';
 import { StarsComponent } from './stars/stars.component';
 import {RouterModule, Routes} from '@angular/router';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StockFormComponent } from './stock/stock-form/stock-form.component';
 import { TestComponent } from './test/test.component';
 import {StockService} from './stock/stock.service';
 import {StockManageComponent} from './stock/stock-manage/stock-manage.component';
+import { StockFilterPipe } from './stock/stock-filter.pipe';
 
 const routeConfig: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -37,12 +38,14 @@ const routeConfig: Routes = [
     StarsComponent,
     DashboardComponent,
     StockFormComponent,
-    TestComponent
+    TestComponent,
+    StockFilterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routeConfig)
   ],
   providers: [
